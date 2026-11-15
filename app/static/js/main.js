@@ -74,8 +74,26 @@ async function init() {
     el.desc.textContent = 'This clean build contains no synthetic sample datasets. Import a challenge-listed NASA SVS resource to begin';
     return;
   }
+  document.querySelectorAll('[data-quick]').forEach((b) => { b.hidden = !state.index.datasets.some((d) => d.id === b.dataset.quick); });
   await selectDataset(0);
 }
+
+/** One click from the front page: turn the sound on, pick the dataset and perform it. */
+async function quickPlay(id) {
+  const i = state.index?.datasets.findIndex((d) => d.id === id);
+  if (i === undefined || i < 0) return;
+  if (!engine.ready) {
+    const ok = await engine.start();
+    el.status.textContent = ok ? 'Sound is on.' : 'Your browser blocked sound. Try again.';
+    el.start.textContent = ok ? 'Sound on' : 'Turn on sound';
+    if (!ok) return;
+    el.status.classList.add('on');
+  }
+  await selectDataset(i);
+  document.querySelector('.stage')?.scrollIntoView({ behavior: 'smooth', block: 'start' });   // so the sweep is on screen
+  startJukebox();
+}
+document.querySelectorAll('[data-quick]').forEach((b) => b.addEventListener('click', () => quickPlay(b.dataset.quick)));
 
 async function selectDataset(i) {
   stopPlaying();
