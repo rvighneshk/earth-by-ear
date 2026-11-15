@@ -1,0 +1,76 @@
+{
+  "title": "NASA Space Apps 2026 \u2014 challenge-listed Earth resources",
+  "note": "Source catalog only. Ingested values from rendered videos are image-derived visual features, not calibrated scientific measurements unless a numeric source and legend are independently decoded.",
+  "resources": [
+    {
+      "id": "eic-night-lights",
+      "title": "Change in Night Lights 2012\u20132023",
+      "url": "https://svs.gsfc.nasa.gov/5313/",
+      "sonification_type": "annual spatial visual series",
+      "provenance": "NASA Black Marble / VIIRS night-light visualization; visual intensity, not calibrated radiance."
+    },
+    {
+      "id": "eic-ocean-current-temperature",
+      "title": "Global Sea Surface Currents and Temperature",
+      "url": "https://svs.gsfc.nasa.gov/3912/",
+      "sonification_type": "flow + color",
+      "provenance": "ECCO2 model-derived surface currents colored by SST."
+    },
+    {
+      "id": "eic-geos-aerosols",
+      "title": "GEOS Aerosols",
+      "url": "https://svs.gsfc.nasa.gov/5669/",
+      "sonification_type": "multi-layer atmospheric visual",
+      "provenance": "GEOS aerosol fields; colors/categories in rendered visualization."
+    },
+    {
+      "id": "eic-air-quality",
+      "title": "Air Quality Model Runs",
+      "url": "https://svs.gsfc.nasa.gov/5533/",
+      "sonification_type": "multi-variable model visualization",
+      "provenance": "GEOS-CF concentrations including PM2.5, O3, CO, NOx."
+    },
+    {
+      "id": "eic-perpetual-ocean",
+      "title": "Perpetual Ocean 2: Western Boundary Currents",
+      "url": "https://svs.gsfc.nasa.gov/5425/",
+      "sonification_type": "animated flow visual",
+      "provenance": "ECCO-derived ocean current visualization; motion sonification."
+    },
+    {
+      "id": "eic-dyamond-co2",
+      "title": "DYAMOND Global Carbon Dioxide",
+      "url": "https://svs.gsfc.nasa.gov/5196/",
+      "sonification_type": "3D concentration visual",
+      "provenance": "Global CO2 ppm from model output, Jan\u2013Mar 2020."
+    },
+    {
+      "id": "eic-iss-lightning",
+      "title": "Lightning Events Detected from the ISS 2017\u20132023",
+      "url": "https://svs.gsfc.nasa.gov/5011/",
+      "sonification_type": "event / animation visual",
+      "provenance": "Quality-controlled ISS LIS observations visualized with a 10-day roving window; video pixels are not individual event records."
+    },
+    {
+      "id": "eic-atmospheric-river",
+      "title": "3D View of an Atmospheric River from an Earth System Model",
+      "url": "https://svs.gsfc.nasa.gov/4960/",
+      "sonification_type": "3D moisture visual",
+      "provenance": "Model visualization; frame-based density/motion extraction."
+    },
+    {
+      "id": "eic-gedi-forest-height",
+      "title": "GEDI Forest Height",
+      "url": "https://svs.gsfc.nasa.gov/4950/",
+      "sonification_type": "color-coded spatial field",
+      "provenance": "GEDI ISS measurements (Apr 2019\u2013Apr 2020); color represents canopy height."
+    },
+    {
+      "id": "eic-caldwell73",
+      "title": "Data Sonification: Caldwell 73",
+      "url": "https://svs.gsfc.nasa.gov/13786/",
+      "sonification_type": "sonification inspiration",
+      "provenance": "Reference/demo only; not Earth data input."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}How it sounds this way - Earth, by ear{% endblock %}
+{% block content %}
+<main id="main" class="prose">
+  <p class="eyebrow">How it works</p>
+  <h1>The colorbar is the codebook</h1>
+  <p>Most colour-to-sound tools map colours straight to notes. That is arbitrary: a different palette would sound different, though the data did not change. This project reads the map's own legend first. It works out which number each colour stands for, and only then makes sound. Change the palette and the music stays the same, because the numbers stay the same.</p>
+
+  <h2>The steps</h2>
+  <ol>
+    <li>Find the colorbar in the image and read its colours from low to high.</li>
+    <li>For every map pixel, find the closest legend colour in a perceptual colour space (CIELAB) and read off the number it stands for. Text, coastlines and grey land match nothing, so they become "no data".</li>
+    <li>Shrink the result to a grid of a few thousand cells, taking the median of each block.</li>
+    <li>Turn each number into a sound with the rules below.</li>
+  </ol>
+
+  <h2>The rules</h2>
+  <dl class="rules">
+    <dt>Pitch</dt><dd>Where the value sits on the legend. Higher value, higher note. Notes are snapped to a musical scale so it stays pleasant to listen to. For anomaly maps, "no change" is always the home note.</dd>
+    <dt>Tension</dt><dd>How extreme the value is. Mild values sound calm: home note, a fifth, an octave. Extreme values add a tritone, then a minor second, and the sound gets brighter.</dd>
+    <dt>Roughness</dt><dd>How much the data changes between neighbouring cells. Smooth regions give a steady tone. Rough regions flutter.</dd>
+    <dt>Stereo position</dt><dd>West to east, left to right.</dd>
+    <dt>Brightness</dt><dd>Rises with tension and with latitude.</dd>
+    <dt>Silence</dt><dd>No data. You hear a soft low thump so you know you reached it.</dd>
+    <dt>Duet</dt><dd>An earlier year in the left ear and a later year in the right ear, at the same place. Same note in both ears means nothing changed. A gap between the ears is the change.</dd>
+  </dl>
+
+  <h2>The guided tour</h2>
+  <p>The tour is not scripted. It compares two years cell by cell, smooths the difference so single noisy cells cannot win, and visits the biggest increase, the biggest decrease and the most extreme place in the later year. It also visits a place that changed least, but only when that is clearly calmer than the rest. Every caption is built from numbers read from the data. If two years barely differ, it says so instead of inventing a story.</p>
+
+  <h2>The jukebox score</h2>
+  <p>"Play this visualization" turns every frame into one four-second bar and plays the frames in order, so a whole animation becomes a short piece. The map is read west to east like a playhead in sixteen slices. The average of each slice is the melody note. Calm maps play four steady beats; maps with a wide spread inside a slice fill in every step. Where a slice mixes low and high values, an octave-up sparkle voice joins in. The planet's chord (below) is the pad underneath. Each dataset has its own scale, home note and waveform, so a lightning storm does not sound like a forest.</p>
+
+  <h2>The planet's chord</h2>
+  <p>A single note describes a single place. To hear a whole map at once, we take every value on it and sort them. The tenth, thirtieth, fiftieth, seventieth and ninetieth percentile values become five notes, using exactly the same pitch rule as everywhere else. That is the map's chord.</p>
+  <ul>
+    <li>If the whole distribution warms, the chord climbs.</li>
+    <li>If the map becomes more uneven, the chord spreads wider and starts to flutter.</li>
+    <li>If the extremes get more extreme, tension is added and the sound brightens.</li>
+  </ul>
+  <p>Play every year in order and you hear the planet's chord move, while the map changes on screen. The three values behind each chord (low, middle and high) are shown and read out, so nothing is hidden behind the music.</p>
+
+  <h2 id="playlist">Playlist: listen without the app</h2>
+  <p>These tracks are the same pieces the jukebox plays, rendered to audio by the same rules. Each has a written description, so the page works without sight and without a mouse. <a href="{{ assets }}/audio/earth-jukebox-playlist.zip" download>Download the whole playlist (ZIP)</a>.</p>
+  {% for ds in datasets %}{% if ds.get("audio") %}
+  <section class="dataset-card">
+    <h3>{{ ds.title }}</h3>
+    <audio controls preload="none" src="{{ assets }}/{{ ds.audio.file }}" aria-label="{{ ds.title }}, {{ ds.audio.seconds }} seconds"></audio>
+    <p><a href="{{ assets }}/{{ ds.audio.file }}" download>Download MP3</a> ({{ ds.audio.seconds }} s)</p>
+    <p>{{ ds.audio.description }}</p>
+  </section>
+  {% endif %}{% endfor %}
+
+  <h2>The datasets and how well they were decoded</h2>
+  <p>Each row shows the rule set for one dataset. "Colour match" is the average perceptual distance (ΔE) between the decoded pixels and the legend colours. Below about 1 is nearly exact. Under 3 is hard to see by eye.</p>
+  {% for ds in datasets %}
+  <section class="dataset-card">
+    <h3>{{ ds.title }}</h3>
+    <p>{{ ds.description }}</p>
+    {% if ds.credit %}<p class="credit">Source: {% if ds.credit.url %}<a href="{{ ds.credit.url }}" rel="noopener">{{ ds.credit.text }}</a>{% else %}{{ ds.credit.text }}{% endif %}</p>{% endif %}
+    <ul>
+      <li>Legend range: {{ ds.range.vmin }} to {{ ds.range.vmax }} {{ ds.unit }}{% if ds.range.scale == 'log' %} (logarithmic){% endif %}{% if ds.range.center is not none %}, centred on {{ ds.range.center }}{% endif %}</li>
+      <li>Scale: {{ ds.sonification.scale }}, home note {{ ds.sonification.root }}, spanning {{ ds.sonification.spanOctaves }} octaves</li>
+      <li>Tension rises with: {% if ds.sonification.tension == 'anomaly' %}distance from the centre in either direction{% elif ds.sonification.tension == 'high' %}high values{% elif ds.sonification.tension == 'low' %}low values{% else %}nothing{% endif %}</li>
+      {% for d in ds.get("diagnostics", []) %}
+      <li>Frame {{ d.label }}: {% if d.mean_de is defined %}colour match ΔE {{ d.mean_de }}, {% endif %}{{ (d.grid_valid * 100)|round|int }}% of cells have data{% if d.warnings %}. Warning: {{ d.warnings|join(' ') }}{% endif %}</li>
+      {% endfor %}
+      {% if not ds.get("diagnostics") %}<li>Source-native values: no image color-decoding diagnostics apply.</li>{% endif %}
+    </ul>
+  </section>
+  {% endfor %}
+
+  <h2>Limits, stated plainly</h2>
+  <ul>
+    <li>The sound comes from the image, not the original science file, so it is limited by the picture's colours and size.</li>
+    <li>Most datasets use image brightness as the value. Sea-surface temperature uses the hue of each pixel along the map's blue-to-red ramp, which is a better fit for a rainbow colour map. Both are relative values, not measurements.</li>
+    <li>Globe and camera views are reported by position in the frame, never by invented latitude and longitude; the black sky around a globe is silent.</li>
+    <li>If a legend is banded, only that many distinct values can be recovered.</li>
+    <li>Cyclic colour palettes, where the ends look alike, can confuse the matching.</li>
+  </ul>
+</main>
+{% endblock %}

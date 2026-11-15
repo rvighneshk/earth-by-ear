@@ -1,0 +1,5 @@
+{
+  "_note": "Real time labels for the frame menus. Give start/end for a video and each sampled frame is labelled by linear interpolation. 'approx' adds a tilde. Datasets without an entry are labelled 'Frame 3 of 6'. Dates below were read from the on-screen stamps of the videos in this project; check them against the SVS page.",
+  "eic-iss-lightning": {"start": "2017-03-01T03:27", "end": "2017-03-01T12:01", "format": "%d %b %Y %H:%M"},
+  "eic-dyamond-co2":   {"start": "2020-01-14T22:00", "end": "2020-02-27T16:00", "format": "%d %b %Y", "approx": true}
+}

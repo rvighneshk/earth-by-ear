@@ -1,0 +1,1417 @@
+{
+ "datasets": [
+  {
+   "id": "eic-night-lights",
+   "title": "Change in Night Lights 2012\u20132023",
+   "unit": "relative brightness",
+   "description": "NASA Black Marble / VIIRS night-light visualization; visual intensity, not calibrated radiance. Visual sonification: normalized grayscale brightness 0\u2013100 sampled from selected video frames and crop.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#03001c",
+    "#160b3b",
+    "#3b0f70",
+    "#721f81",
+    "#b63679",
+    "#e65c4f",
+    "#fca636",
+    "#fcfdbf"
+   ],
+   "sonification": {
+    "scale": "lydian",
+    "root": "D3",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "brighter",
+    "negativeWord": "darker",
+    "wave": "sine"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/5313/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "Frame 1 of 5",
+     "seconds": 0.0,
+     "url": "eic-night-lights/00.json",
+     "image": "eic-night-lights/00.jpg"
+    },
+    {
+     "label": "Frame 2 of 5",
+     "seconds": 10.0,
+     "url": "eic-night-lights/01.json",
+     "image": "eic-night-lights/01.jpg"
+    },
+    {
+     "label": "Frame 3 of 5",
+     "seconds": 20.0,
+     "url": "eic-night-lights/02.json",
+     "image": "eic-night-lights/02.jpg"
+    },
+    {
+     "label": "Frame 4 of 5",
+     "seconds": 30.0,
+     "url": "eic-night-lights/03.json",
+     "image": "eic-night-lights/03.jpg"
+    },
+    {
+     "label": "Frame 5 of 5",
+     "seconds": 40.0,
+     "url": "eic-night-lights/04.json",
+     "image": "eic-night-lights/04.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/5313/",
+   "cropNormalized": [
+    0.02,
+    0.12,
+    0.96,
+    0.72
+   ],
+   "diagnostics": [
+    {
+     "label": "Frame 1 of 5",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 2 of 5",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 3 of 5",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 4 of 5",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 5 of 5",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    }
+   ],
+   "geometry": "map",
+   "audio": {
+    "file": "audio/eic-night-lights.mp3",
+    "seconds": 25.5,
+    "description": "5 movements of four seconds, one per frame. lydian scale, home note D3, sine sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. The middle of the map goes from 0 relative brightness to 2 relative brightness, so the pad rises. Sound is derived from image brightness, not calibrated measurements."
+   }
+  },
+  {
+   "id": "eic-ocean-current-temperature",
+   "title": "Global Sea Surface Currents and Temperature",
+   "unit": "% along cold-to-warm ramp",
+   "description": "ECCO2 model-derived surface currents colored by SST. Visual sonification: each pixel's hue is placed along the blue-to-red temperature colour ramp (0 = coldest colour, 100 = warmest). Grey land is silent. Relative, not calibrated degrees.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#08306b",
+    "#2171b5",
+    "#41b6c4",
+    "#7fcdbb",
+    "#addd8e",
+    "#ffeda0",
+    "#fd8d3c",
+    "#e31a1c"
+   ],
+   "sonification": {
+    "scale": "dorian",
+    "root": "A2",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "warmer",
+    "negativeWord": "cooler",
+    "wave": "triangle"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/3912/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "Frame 1 of 6",
+     "seconds": 0.0,
+     "url": "eic-ocean-current-temperature/00.json",
+     "image": "eic-ocean-current-temperature/00.jpg"
+    },
+    {
+     "label": "Frame 2 of 6",
+     "seconds": 5.0,
+     "url": "eic-ocean-current-temperature/01.json",
+     "image": "eic-ocean-current-temperature/01.jpg"
+    },
+    {
+     "label": "Frame 3 of 6",
+     "seconds": 10.0,
+     "url": "eic-ocean-current-temperature/02.json",
+     "image": "eic-ocean-current-temperature/02.jpg"
+    },
+    {
+     "label": "Frame 4 of 6",
+     "seconds": 15.0,
+     "url": "eic-ocean-current-temperature/03.json",
+     "image": "eic-ocean-current-temperature/03.jpg"
+    },
+    {
+     "label": "Frame 5 of 6",
+     "seconds": 20.0,
+     "url": "eic-ocean-current-temperature/04.json",
+     "image": "eic-ocean-current-temperature/04.jpg"
+    },
+    {
+     "label": "Frame 6 of 6",
+     "seconds": 25.0,
+     "url": "eic-ocean-current-temperature/05.json",
+     "image": "eic-ocean-current-temperature/05.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/3912/",
+   "cropNormalized": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "diagnostics": [
+    {
+     "label": "Frame 1 of 6",
+     "grid_valid": 0.459,
+     "warnings": [
+      "Relative position along the blue-to-red colour ramp; not calibrated degrees."
+     ]
+    },
+    {
+     "label": "Frame 2 of 6",
+     "grid_valid": 0.444,
+     "warnings": [
+      "Relative position along the blue-to-red colour ramp; not calibrated degrees."
+     ]
+    },
+    {
+     "label": "Frame 3 of 6",
+     "grid_valid": 0.449,
+     "warnings": [
+      "Relative position along the blue-to-red colour ramp; not calibrated degrees."
+     ]
+    },
+    {
+     "label": "Frame 4 of 6",
+     "grid_valid": 0.46,
+     "warnings": [
+      "Relative position along the blue-to-red colour ramp; not calibrated degrees."
+     ]
+    },
+    {
+     "label": "Frame 5 of 6",
+     "grid_valid": 0.43,
+     "warnings": [
+      "Relative position along the blue-to-red colour ramp; not calibrated degrees."
+     ]
+    },
+    {
+     "label": "Frame 6 of 6",
+     "grid_valid": 0.453,
+     "warnings": [
+      "Relative position along the blue-to-red colour ramp; not calibrated degrees."
+     ]
+    }
+   ],
+   "geometry": "map",
+   "valueSource": "hue",
+   "audio": {
+    "file": "audio/eic-ocean-current-temperature.mp3",
+    "seconds": 29.5,
+    "description": "6 movements of four seconds, one per frame. dorian scale, home note A2, triangle sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. The middle of the map goes from 72 % along cold-to-warm ramp to 72 % along cold-to-warm ramp, so the pad stays put. Pitch follows each pixel's position along the colour ramp, not calibrated degrees."
+   }
+  },
+  {
+   "id": "eic-geos-aerosols",
+   "title": "GEOS Aerosols",
+   "unit": "relative brightness",
+   "description": "GEOS aerosol fields; colors/categories in rendered visualization. Visual sonification: normalized grayscale brightness 0\u2013100 sampled from selected video frames and crop.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#0d0887",
+    "#6a00a8",
+    "#b12a90",
+    "#e16462",
+    "#fca636",
+    "#f0f921"
+   ],
+   "sonification": {
+    "scale": "wholeTone",
+    "root": "E3",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "brighter",
+    "negativeWord": "darker",
+    "wave": "sine"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/5669/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "Frame 1 of 1",
+     "seconds": 0.0,
+     "url": "eic-geos-aerosols/00.json",
+     "image": "eic-geos-aerosols/00.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/5669/",
+   "cropNormalized": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "diagnostics": [
+    {
+     "label": "Frame 1 of 1",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    }
+   ],
+   "geometry": "map",
+   "audio": {
+    "file": "audio/eic-geos-aerosols.mp3",
+    "seconds": 21.5,
+    "description": "One still frame, repeated for four bars. wholeTone scale, home note E3, sine sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. Sound is derived from image brightness, not calibrated measurements."
+   }
+  },
+  {
+   "id": "eic-air-quality",
+   "title": "Air Quality Model Runs",
+   "unit": "relative brightness",
+   "description": "GEOS-CF concentrations including PM2.5, O3, CO, NOx. Visual sonification: normalized grayscale brightness 0\u2013100 sampled from selected video frames and crop. Grey area = outside the globe: no data, so it is silent.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#440154",
+    "#482878",
+    "#3e4989",
+    "#31688e",
+    "#26828e",
+    "#1f9e89",
+    "#35b779",
+    "#6ece58",
+    "#b5de2b",
+    "#fde725"
+   ],
+   "sonification": {
+    "scale": "dorian",
+    "root": "F3",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "brighter",
+    "negativeWord": "darker",
+    "wave": "triangle"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/5533/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "Frame 1 of 11",
+     "seconds": 0.0,
+     "url": "eic-air-quality/00.json",
+     "image": "eic-air-quality/00.jpg"
+    },
+    {
+     "label": "Frame 2 of 11",
+     "seconds": 5.0,
+     "url": "eic-air-quality/01.json",
+     "image": "eic-air-quality/01.jpg"
+    },
+    {
+     "label": "Frame 3 of 11",
+     "seconds": 10.0,
+     "url": "eic-air-quality/02.json",
+     "image": "eic-air-quality/02.jpg"
+    },
+    {
+     "label": "Frame 4 of 11",
+     "seconds": 15.0,
+     "url": "eic-air-quality/03.json",
+     "image": "eic-air-quality/03.jpg"
+    },
+    {
+     "label": "Frame 5 of 11",
+     "seconds": 20.0,
+     "url": "eic-air-quality/04.json",
+     "image": "eic-air-quality/04.jpg"
+    },
+    {
+     "label": "Frame 6 of 11",
+     "seconds": 25.0,
+     "url": "eic-air-quality/05.json",
+     "image": "eic-air-quality/05.jpg"
+    },
+    {
+     "label": "Frame 7 of 11",
+     "seconds": 30.0,
+     "url": "eic-air-quality/06.json",
+     "image": "eic-air-quality/06.jpg"
+    },
+    {
+     "label": "Frame 8 of 11",
+     "seconds": 35.0,
+     "url": "eic-air-quality/07.json",
+     "image": "eic-air-quality/07.jpg"
+    },
+    {
+     "label": "Frame 9 of 11",
+     "seconds": 40.0,
+     "url": "eic-air-quality/08.json",
+     "image": "eic-air-quality/08.jpg"
+    },
+    {
+     "label": "Frame 10 of 11",
+     "seconds": 45.0,
+     "url": "eic-air-quality/09.json",
+     "image": "eic-air-quality/09.jpg"
+    },
+    {
+     "label": "Frame 11 of 11",
+     "seconds": 50.0,
+     "url": "eic-air-quality/10.json",
+     "image": "eic-air-quality/10.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/5533/",
+   "cropNormalized": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "diagnostics": [
+    {
+     "label": "Frame 1 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 2 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 3 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 4 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 5 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 6 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 7 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 8 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 9 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 10 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 11 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    }
+   ],
+   "geometry": "view",
+   "globeMasked": true,
+   "audio": {
+    "file": "audio/eic-air-quality.mp3",
+    "seconds": 49.5,
+    "description": "11 movements of four seconds, one per frame. dorian scale, home note F3, triangle sound. A pad plays the whole picture, a melody sweeps left to right across the view, and a high sparkle appears where the picture is busy. The middle of the map goes from 62 relative brightness to 55 relative brightness, so the pad falls. Sound is derived from image brightness, not calibrated measurements."
+   }
+  },
+  {
+   "id": "eic-perpetual-ocean",
+   "title": "Perpetual Ocean 2: Western Boundary Currents",
+   "unit": "relative brightness",
+   "description": "ECCO-derived ocean current visualization; motion sonification. Visual sonification: normalized grayscale brightness 0\u2013100 sampled from selected video frames and crop.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#081d58",
+    "#225ea8",
+    "#41b6c4",
+    "#a1dab4",
+    "#ffffcc"
+   ],
+   "sonification": {
+    "scale": "dorian",
+    "root": "D3",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "brighter",
+    "negativeWord": "darker",
+    "wave": "sine"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/5425/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "Frame 1 of 6",
+     "seconds": 5.0,
+     "url": "eic-perpetual-ocean/00.json",
+     "image": "eic-perpetual-ocean/00.jpg"
+    },
+    {
+     "label": "Frame 2 of 6",
+     "seconds": 65.63,
+     "url": "eic-perpetual-ocean/01.json",
+     "image": "eic-perpetual-ocean/01.jpg"
+    },
+    {
+     "label": "Frame 3 of 6",
+     "seconds": 126.27,
+     "url": "eic-perpetual-ocean/02.json",
+     "image": "eic-perpetual-ocean/02.jpg"
+    },
+    {
+     "label": "Frame 4 of 6",
+     "seconds": 186.9,
+     "url": "eic-perpetual-ocean/03.json",
+     "image": "eic-perpetual-ocean/03.jpg"
+    },
+    {
+     "label": "Frame 5 of 6",
+     "seconds": 247.54,
+     "url": "eic-perpetual-ocean/04.json",
+     "image": "eic-perpetual-ocean/04.jpg"
+    },
+    {
+     "label": "Frame 6 of 6",
+     "seconds": 308.17,
+     "url": "eic-perpetual-ocean/05.json",
+     "image": "eic-perpetual-ocean/05.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/5425/",
+   "cropNormalized": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "diagnostics": [
+    {
+     "label": "Frame 1 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 2 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 3 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 4 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 5 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 6 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    }
+   ],
+   "geometry": "map",
+   "audio": {
+    "file": "audio/eic-perpetual-ocean.mp3",
+    "seconds": 29.5,
+    "description": "6 movements of four seconds, one per frame. dorian scale, home note D3, sine sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. The middle of the map goes from 0 relative brightness to 0 relative brightness, so the pad stays put. Sound is derived from image brightness, not calibrated measurements."
+   }
+  },
+  {
+   "id": "eic-dyamond-co2",
+   "title": "DYAMOND Global Carbon Dioxide",
+   "unit": "relative brightness",
+   "description": "Global CO2 ppm from model output, Jan\u2013Mar 2020. Visual sonification: normalized grayscale brightness 0\u2013100 sampled from selected video frames and crop. Grey area = outside the globe: no data, so it is silent.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#0d0887",
+    "#6a00a8",
+    "#b12a90",
+    "#e16462",
+    "#fca636",
+    "#f0f921"
+   ],
+   "sonification": {
+    "scale": "minorPent",
+    "root": "C3",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "brighter",
+    "negativeWord": "darker",
+    "wave": "sawtooth"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/5196/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "~14 Jan 2020",
+     "seconds": 0.0,
+     "url": "eic-dyamond-co2/00.json",
+     "image": "eic-dyamond-co2/00.jpg"
+    },
+    {
+     "label": "~21 Jan 2020",
+     "seconds": 5.0,
+     "url": "eic-dyamond-co2/01.json",
+     "image": "eic-dyamond-co2/01.jpg"
+    },
+    {
+     "label": "~27 Jan 2020",
+     "seconds": 10.0,
+     "url": "eic-dyamond-co2/02.json",
+     "image": "eic-dyamond-co2/02.jpg"
+    },
+    {
+     "label": "~02 Feb 2020",
+     "seconds": 15.0,
+     "url": "eic-dyamond-co2/03.json",
+     "image": "eic-dyamond-co2/03.jpg"
+    },
+    {
+     "label": "~08 Feb 2020",
+     "seconds": 20.0,
+     "url": "eic-dyamond-co2/04.json",
+     "image": "eic-dyamond-co2/04.jpg"
+    },
+    {
+     "label": "~15 Feb 2020",
+     "seconds": 25.0,
+     "url": "eic-dyamond-co2/05.json",
+     "image": "eic-dyamond-co2/05.jpg"
+    },
+    {
+     "label": "~21 Feb 2020",
+     "seconds": 30.0,
+     "url": "eic-dyamond-co2/06.json",
+     "image": "eic-dyamond-co2/06.jpg"
+    },
+    {
+     "label": "~27 Feb 2020",
+     "seconds": 35.0,
+     "url": "eic-dyamond-co2/07.json",
+     "image": "eic-dyamond-co2/07.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/5196/",
+   "cropNormalized": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "diagnostics": [
+    {
+     "label": "~14 Jan 2020",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "~21 Jan 2020",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "~27 Jan 2020",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "~02 Feb 2020",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "~08 Feb 2020",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "~15 Feb 2020",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "~21 Feb 2020",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "~27 Feb 2020",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    }
+   ],
+   "geometry": "view",
+   "globeMasked": true,
+   "audio": {
+    "file": "audio/eic-dyamond-co2.mp3",
+    "seconds": 37.5,
+    "description": "8 movements of four seconds, one per frame. minorPent scale, home note C3, sawtooth sound. A pad plays the whole picture, a melody sweeps left to right across the view, and a high sparkle appears where the picture is busy. The middle of the map goes from 4 relative brightness to 5 relative brightness, so the pad rises. Sound is derived from image brightness, not calibrated measurements."
+   }
+  },
+  {
+   "id": "eic-iss-lightning",
+   "title": "Lightning Events Detected from the ISS 2017\u20132023",
+   "unit": "relative brightness",
+   "description": "Quality-controlled ISS LIS observations visualized with a 10-day roving window; video pixels are not individual event records. Visual sonification: normalized grayscale brightness 0\u2013100 sampled from selected video frames and crop.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#0d0887",
+    "#6a00a8",
+    "#b12a90",
+    "#e16462",
+    "#fca636",
+    "#f0f921"
+   ],
+   "sonification": {
+    "scale": "minorPent",
+    "root": "F#3",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "brighter",
+    "negativeWord": "darker",
+    "wave": "sawtooth"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/5011/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "01 Mar 2017 03:27",
+     "seconds": 0.0,
+     "url": "eic-iss-lightning/00.json",
+     "image": "eic-iss-lightning/00.jpg"
+    },
+    {
+     "label": "01 Mar 2017 04:18",
+     "seconds": 5.0,
+     "url": "eic-iss-lightning/01.json",
+     "image": "eic-iss-lightning/01.jpg"
+    },
+    {
+     "label": "01 Mar 2017 05:09",
+     "seconds": 10.0,
+     "url": "eic-iss-lightning/02.json",
+     "image": "eic-iss-lightning/02.jpg"
+    },
+    {
+     "label": "01 Mar 2017 06:01",
+     "seconds": 15.0,
+     "url": "eic-iss-lightning/03.json",
+     "image": "eic-iss-lightning/03.jpg"
+    },
+    {
+     "label": "01 Mar 2017 06:52",
+     "seconds": 20.0,
+     "url": "eic-iss-lightning/04.json",
+     "image": "eic-iss-lightning/04.jpg"
+    },
+    {
+     "label": "01 Mar 2017 07:44",
+     "seconds": 25.0,
+     "url": "eic-iss-lightning/05.json",
+     "image": "eic-iss-lightning/05.jpg"
+    },
+    {
+     "label": "01 Mar 2017 08:35",
+     "seconds": 30.0,
+     "url": "eic-iss-lightning/06.json",
+     "image": "eic-iss-lightning/06.jpg"
+    },
+    {
+     "label": "01 Mar 2017 09:26",
+     "seconds": 35.0,
+     "url": "eic-iss-lightning/07.json",
+     "image": "eic-iss-lightning/07.jpg"
+    },
+    {
+     "label": "01 Mar 2017 10:18",
+     "seconds": 40.0,
+     "url": "eic-iss-lightning/08.json",
+     "image": "eic-iss-lightning/08.jpg"
+    },
+    {
+     "label": "01 Mar 2017 11:09",
+     "seconds": 45.0,
+     "url": "eic-iss-lightning/09.json",
+     "image": "eic-iss-lightning/09.jpg"
+    },
+    {
+     "label": "01 Mar 2017 12:01",
+     "seconds": 50.0,
+     "url": "eic-iss-lightning/10.json",
+     "image": "eic-iss-lightning/10.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/5011/",
+   "cropNormalized": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "diagnostics": [
+    {
+     "label": "01 Mar 2017 03:27",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 04:18",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 05:09",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 06:01",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 06:52",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 07:44",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 08:35",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 09:26",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 10:18",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 11:09",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "01 Mar 2017 12:01",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    }
+   ],
+   "geometry": "view",
+   "audio": {
+    "file": "audio/eic-iss-lightning.mp3",
+    "seconds": 49.5,
+    "description": "11 movements of four seconds, one per frame. minorPent scale, home note F#3, sawtooth sound. A pad plays the whole picture, a melody sweeps left to right across the view, and a high sparkle appears where the picture is busy. The middle of the map goes from 0 relative brightness to 10 relative brightness, so the pad rises. Sound is derived from image brightness, not calibrated measurements."
+   }
+  },
+  {
+   "id": "eic-atmospheric-river",
+   "title": "3D View of an Atmospheric River from an Earth System Model",
+   "unit": "relative brightness",
+   "description": "Model visualization; frame-based density/motion extraction. Visual sonification: normalized grayscale brightness 0\u2013100 sampled from selected video frames and crop.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#440154",
+    "#482878",
+    "#3e4989",
+    "#31688e",
+    "#26828e",
+    "#1f9e89",
+    "#35b779",
+    "#6ece58",
+    "#b5de2b",
+    "#fde725"
+   ],
+   "sonification": {
+    "scale": "lydian",
+    "root": "A2",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "brighter",
+    "negativeWord": "darker",
+    "wave": "triangle"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/4960/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "Frame 1 of 6",
+     "seconds": 8.0,
+     "url": "eic-atmospheric-river/00.json",
+     "image": "eic-atmospheric-river/00.jpg"
+    },
+    {
+     "label": "Frame 2 of 6",
+     "seconds": 62.12,
+     "url": "eic-atmospheric-river/01.json",
+     "image": "eic-atmospheric-river/01.jpg"
+    },
+    {
+     "label": "Frame 3 of 6",
+     "seconds": 116.23,
+     "url": "eic-atmospheric-river/02.json",
+     "image": "eic-atmospheric-river/02.jpg"
+    },
+    {
+     "label": "Frame 4 of 6",
+     "seconds": 170.35,
+     "url": "eic-atmospheric-river/03.json",
+     "image": "eic-atmospheric-river/03.jpg"
+    },
+    {
+     "label": "Frame 5 of 6",
+     "seconds": 224.47,
+     "url": "eic-atmospheric-river/04.json",
+     "image": "eic-atmospheric-river/04.jpg"
+    },
+    {
+     "label": "Frame 6 of 6",
+     "seconds": 278.59,
+     "url": "eic-atmospheric-river/05.json",
+     "image": "eic-atmospheric-river/05.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/4960/",
+   "cropNormalized": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "diagnostics": [
+    {
+     "label": "Frame 1 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 2 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 3 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 4 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 5 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 6 of 6",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    }
+   ],
+   "geometry": "map",
+   "audio": {
+    "file": "audio/eic-atmospheric-river.mp3",
+    "seconds": 29.5,
+    "description": "6 movements of four seconds, one per frame. lydian scale, home note A2, triangle sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. The middle of the map goes from 0 relative brightness to 0 relative brightness, so the pad stays put. Sound is derived from image brightness, not calibrated measurements."
+   }
+  },
+  {
+   "id": "eic-gedi-forest-height",
+   "title": "GEDI Forest Height",
+   "unit": "relative brightness",
+   "description": "GEDI ISS measurements (Apr 2019\u2013Apr 2020); color represents canopy height. Visual sonification: normalized grayscale brightness 0\u2013100 sampled from selected video frames and crop. Grey area = outside the globe: no data, so it is silent.",
+   "range": {
+    "vmin": 0,
+    "vmax": 100,
+    "center": null,
+    "scale": "linear"
+   },
+   "palette": [
+    "#440154",
+    "#482878",
+    "#3e4989",
+    "#31688e",
+    "#26828e",
+    "#1f9e89",
+    "#35b779",
+    "#6ece58",
+    "#b5de2b",
+    "#fde725"
+   ],
+   "sonification": {
+    "scale": "majorPent",
+    "root": "G2",
+    "spanOctaves": 3,
+    "tension": "high",
+    "positiveWord": "brighter",
+    "negativeWord": "darker",
+    "wave": "sine"
+   },
+   "story": {
+    "intro": "This sound is derived from visual brightness in a NASA Scientific Visualization Studio animation\u2014not directly from calibrated pixel-level scientific measurements.",
+    "outro": "Brighter sampled pixels rise in pitch and intensity. The pattern you heard follows the selected visualization frames."
+   },
+   "credit": {
+    "text": "NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.",
+    "url": "https://svs.gsfc.nasa.gov/4950/"
+   },
+   "extent": {
+    "west": -180,
+    "south": -90,
+    "east": 180,
+    "north": 90
+   },
+   "frames": [
+    {
+     "label": "Frame 1 of 11",
+     "seconds": 0.0,
+     "url": "eic-gedi-forest-height/00.json",
+     "image": "eic-gedi-forest-height/00.jpg"
+    },
+    {
+     "label": "Frame 2 of 11",
+     "seconds": 5.0,
+     "url": "eic-gedi-forest-height/01.json",
+     "image": "eic-gedi-forest-height/01.jpg"
+    },
+    {
+     "label": "Frame 3 of 11",
+     "seconds": 10.0,
+     "url": "eic-gedi-forest-height/02.json",
+     "image": "eic-gedi-forest-height/02.jpg"
+    },
+    {
+     "label": "Frame 4 of 11",
+     "seconds": 15.0,
+     "url": "eic-gedi-forest-height/03.json",
+     "image": "eic-gedi-forest-height/03.jpg"
+    },
+    {
+     "label": "Frame 5 of 11",
+     "seconds": 20.0,
+     "url": "eic-gedi-forest-height/04.json",
+     "image": "eic-gedi-forest-height/04.jpg"
+    },
+    {
+     "label": "Frame 6 of 11",
+     "seconds": 25.0,
+     "url": "eic-gedi-forest-height/05.json",
+     "image": "eic-gedi-forest-height/05.jpg"
+    },
+    {
+     "label": "Frame 7 of 11",
+     "seconds": 30.0,
+     "url": "eic-gedi-forest-height/06.json",
+     "image": "eic-gedi-forest-height/06.jpg"
+    },
+    {
+     "label": "Frame 8 of 11",
+     "seconds": 35.0,
+     "url": "eic-gedi-forest-height/07.json",
+     "image": "eic-gedi-forest-height/07.jpg"
+    },
+    {
+     "label": "Frame 9 of 11",
+     "seconds": 40.0,
+     "url": "eic-gedi-forest-height/08.json",
+     "image": "eic-gedi-forest-height/08.jpg"
+    },
+    {
+     "label": "Frame 10 of 11",
+     "seconds": 45.0,
+     "url": "eic-gedi-forest-height/09.json",
+     "image": "eic-gedi-forest-height/09.jpg"
+    },
+    {
+     "label": "Frame 11 of 11",
+     "seconds": 50.0,
+     "url": "eic-gedi-forest-height/10.json",
+     "image": "eic-gedi-forest-height/10.jpg"
+    }
+   ],
+   "visualSonification": true,
+   "sourcePage": "https://svs.gsfc.nasa.gov/4950/",
+   "cropNormalized": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "diagnostics": [
+    {
+     "label": "Frame 1 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 2 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 3 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 4 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 5 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 6 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 7 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 8 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 9 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 10 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    },
+    {
+     "label": "Frame 11 of 11",
+     "grid_valid": 1.0,
+     "warnings": [
+      "Relative image brightness; not calibrated science units"
+     ]
+    }
+   ],
+   "geometry": "view",
+   "globeMasked": true,
+   "audio": {
+    "file": "audio/eic-gedi-forest-height.mp3",
+    "seconds": 49.5,
+    "description": "11 movements of four seconds, one per frame. majorPent scale, home note G2, sine sound. A pad plays the whole picture, a melody sweeps left to right across the view, and a high sparkle appears where the picture is busy. The middle of the map goes from 32 relative brightness to 32 relative brightness, so the pad stays put. Sound is derived from image brightness, not calibrated measurements."
+   }
+  }
+ ]
+}

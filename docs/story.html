@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a1020">
+  <title>How it sounds this way - Earth, by ear</title>
+  <!-- Manrope from Google Fonts when online; the page works without it (falls back to system-ui). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="static/css/app.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the map</a>
+  <header class="top">
+    <a class="brand" href="index.html" aria-label="Earth, by ear, home">
+      <svg class="mark" viewBox="0 0 48 48" width="38" height="38" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+        <rect x="1" y="1" width="46" height="46" rx="14" fill="url(#mk)"/>
+        <path d="M12 26a12 12 0 0 1 24 0" fill="none" stroke="#04121f" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+        <path d="M17 26a7 7 0 0 1 14 0" fill="none" stroke="#04121f" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+        <circle cx="24" cy="31" r="3.2" fill="#04121f"/>
+      </svg>
+      <span class="brand-text"><span class="brand-name">Earth, by ear</span><span class="brand-sub">NASA data you can hear</span></span>
+    </a>
+    <nav aria-label="Pages">
+      <a href="index.html" >Listen</a>
+      <a href="story.html" aria-current="page">How it works</a>
+    </nav>
+  </header>
+  
+<main id="main" class="prose">
+  <p class="eyebrow">How it works</p>
+  <h1>The colorbar is the codebook</h1>
+  <p>Most colour-to-sound tools map colours straight to notes. That is arbitrary: a different palette would sound different, though the data did not change. This project reads the map's own legend first. It works out which number each colour stands for, and only then makes sound. Change the palette and the music stays the same, because the numbers stay the same.</p>
+
+  <h2>The steps</h2>
+  <ol>
+    <li>Find the colorbar in the image and read its colours from low to high.</li>
+    <li>For every map pixel, find the closest legend colour in a perceptual colour space (CIELAB) and read off the number it stands for. Text, coastlines and grey land match nothing, so they become "no data".</li>
+    <li>Shrink the result to a grid of a few thousand cells, taking the median of each block.</li>
+    <li>Turn each number into a sound with the rules below.</li>
+  </ol>
+
+  <h2>The rules</h2>
+  <dl class="rules">
+    <dt>Pitch</dt><dd>Where the value sits on the legend. Higher value, higher note. Notes are snapped to a musical scale so it stays pleasant to listen to. For anomaly maps, "no change" is always the home note.</dd>
+    <dt>Tension</dt><dd>How extreme the value is. Mild values sound calm: home note, a fifth, an octave. Extreme values add a tritone, then a minor second, and the sound gets brighter.</dd>
+    <dt>Roughness</dt><dd>How much the data changes between neighbouring cells. Smooth regions give a steady tone. Rough regions flutter.</dd>
+    <dt>Stereo position</dt><dd>West to east, left to right.</dd>
+    <dt>Brightness</dt><dd>Rises with tension and with latitude.</dd>
+    <dt>Silence</dt><dd>No data. You hear a soft low thump so you know you reached it.</dd>
+    <dt>Duet</dt><dd>An earlier year in the left ear and a later year in the right ear, at the same place. Same note in both ears means nothing changed. A gap between the ears is the change.</dd>
+  </dl>
+
+  <h2>The guided tour</h2>
+  <p>The tour is not scripted. It compares two years cell by cell, smooths the difference so single noisy cells cannot win, and visits the biggest increase, the biggest decrease and the most extreme place in the later year. It also visits a place that changed least, but only when that is clearly calmer than the rest. Every caption is built from numbers read from the data. If two years barely differ, it says so instead of inventing a story.</p>
+
+  <h2>The jukebox score</h2>
+  <p>"Play this visualization" turns every frame into one four-second bar and plays the frames in order, so a whole animation becomes a short piece. The map is read west to east like a playhead in sixteen slices. The average of each slice is the melody note. Calm maps play four steady beats; maps with a wide spread inside a slice fill in every step. Where a slice mixes low and high values, an octave-up sparkle voice joins in. The planet's chord (below) is the pad underneath. Each dataset has its own scale, home note and waveform, so a lightning storm does not sound like a forest.</p>
+
+  <h2>The planet's chord</h2>
+  <p>A single note describes a single place. To hear a whole map at once, we take every value on it and sort them. The tenth, thirtieth, fiftieth, seventieth and ninetieth percentile values become five notes, using exactly the same pitch rule as everywhere else. That is the map's chord.</p>
+  <ul>
+    <li>If the whole distribution warms, the chord climbs.</li>
+    <li>If the map becomes more uneven, the chord spreads wider and starts to flutter.</li>
+    <li>If the extremes get more extreme, tension is added and the sound brightens.</li>
+  </ul>
+  <p>Play every year in order and you hear the planet's chord move, while the map changes on screen. The three values behind each chord (low, middle and high) are shown and read out, so nothing is hidden behind the music.</p>
+
+  <h2 id="playlist">Playlist: listen without the app</h2>
+  <p>These tracks are the same pieces the jukebox plays, rendered to audio by the same rules. Each has a written description, so the page works without sight and without a mouse. <a href="static/audio/earth-jukebox-playlist.zip" download>Download the whole playlist (ZIP)</a>.</p>
+  
+  <section class="dataset-card">
+    <h3>Change in Night Lights 2012–2023</h3>
+    <audio controls preload="none" src="static/audio/eic-night-lights.mp3" aria-label="Change in Night Lights 2012–2023, 25.5 seconds"></audio>
+    <p><a href="static/audio/eic-night-lights.mp3" download>Download MP3</a> (25.5 s)</p>
+    <p>5 movements of four seconds, one per frame. lydian scale, home note D3, sine sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. The middle of the map goes from 0 relative brightness to 2 relative brightness, so the pad rises. Sound is derived from image brightness, not calibrated measurements.</p>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>Global Sea Surface Currents and Temperature</h3>
+    <audio controls preload="none" src="static/audio/eic-ocean-current-temperature.mp3" aria-label="Global Sea Surface Currents and Temperature, 29.5 seconds"></audio>
+    <p><a href="static/audio/eic-ocean-current-temperature.mp3" download>Download MP3</a> (29.5 s)</p>
+    <p>6 movements of four seconds, one per frame. dorian scale, home note A2, triangle sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. The middle of the map goes from 72 % along cold-to-warm ramp to 72 % along cold-to-warm ramp, so the pad stays put. Pitch follows each pixel&#39;s position along the colour ramp, not calibrated degrees.</p>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>GEOS Aerosols</h3>
+    <audio controls preload="none" src="static/audio/eic-geos-aerosols.mp3" aria-label="GEOS Aerosols, 21.5 seconds"></audio>
+    <p><a href="static/audio/eic-geos-aerosols.mp3" download>Download MP3</a> (21.5 s)</p>
+    <p>One still frame, repeated for four bars. wholeTone scale, home note E3, sine sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. Sound is derived from image brightness, not calibrated measurements.</p>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>Air Quality Model Runs</h3>
+    <audio controls preload="none" src="static/audio/eic-air-quality.mp3" aria-label="Air Quality Model Runs, 49.5 seconds"></audio>
+    <p><a href="static/audio/eic-air-quality.mp3" download>Download MP3</a> (49.5 s)</p>
+    <p>11 movements of four seconds, one per frame. dorian scale, home note F3, triangle sound. A pad plays the whole picture, a melody sweeps left to right across the view, and a high sparkle appears where the picture is busy. The middle of the map goes from 62 relative brightness to 55 relative brightness, so the pad falls. Sound is derived from image brightness, not calibrated measurements.</p>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>Perpetual Ocean 2: Western Boundary Currents</h3>
+    <audio controls preload="none" src="static/audio/eic-perpetual-ocean.mp3" aria-label="Perpetual Ocean 2: Western Boundary Currents, 29.5 seconds"></audio>
+    <p><a href="static/audio/eic-perpetual-ocean.mp3" download>Download MP3</a> (29.5 s)</p>
+    <p>6 movements of four seconds, one per frame. dorian scale, home note D3, sine sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. The middle of the map goes from 0 relative brightness to 0 relative brightness, so the pad stays put. Sound is derived from image brightness, not calibrated measurements.</p>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>DYAMOND Global Carbon Dioxide</h3>
+    <audio controls preload="none" src="static/audio/eic-dyamond-co2.mp3" aria-label="DYAMOND Global Carbon Dioxide, 37.5 seconds"></audio>
+    <p><a href="static/audio/eic-dyamond-co2.mp3" download>Download MP3</a> (37.5 s)</p>
+    <p>8 movements of four seconds, one per frame. minorPent scale, home note C3, sawtooth sound. A pad plays the whole picture, a melody sweeps left to right across the view, and a high sparkle appears where the picture is busy. The middle of the map goes from 4 relative brightness to 5 relative brightness, so the pad rises. Sound is derived from image brightness, not calibrated measurements.</p>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>Lightning Events Detected from the ISS 2017–2023</h3>
+    <audio controls preload="none" src="static/audio/eic-iss-lightning.mp3" aria-label="Lightning Events Detected from the ISS 2017–2023, 49.5 seconds"></audio>
+    <p><a href="static/audio/eic-iss-lightning.mp3" download>Download MP3</a> (49.5 s)</p>
+    <p>11 movements of four seconds, one per frame. minorPent scale, home note F#3, sawtooth sound. A pad plays the whole picture, a melody sweeps left to right across the view, and a high sparkle appears where the picture is busy. The middle of the map goes from 0 relative brightness to 10 relative brightness, so the pad rises. Sound is derived from image brightness, not calibrated measurements.</p>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>3D View of an Atmospheric River from an Earth System Model</h3>
+    <audio controls preload="none" src="static/audio/eic-atmospheric-river.mp3" aria-label="3D View of an Atmospheric River from an Earth System Model, 29.5 seconds"></audio>
+    <p><a href="static/audio/eic-atmospheric-river.mp3" download>Download MP3</a> (29.5 s)</p>
+    <p>6 movements of four seconds, one per frame. lydian scale, home note A2, triangle sound. A pad plays the whole picture, a melody sweeps west to east, and a high sparkle appears where the picture is busy. The middle of the map goes from 0 relative brightness to 0 relative brightness, so the pad stays put. Sound is derived from image brightness, not calibrated measurements.</p>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>GEDI Forest Height</h3>
+    <audio controls preload="none" src="static/audio/eic-gedi-forest-height.mp3" aria-label="GEDI Forest Height, 49.5 seconds"></audio>
+    <p><a href="static/audio/eic-gedi-forest-height.mp3" download>Download MP3</a> (49.5 s)</p>
+    <p>11 movements of four seconds, one per frame. majorPent scale, home note G2, sine sound. A pad plays the whole picture, a melody sweeps left to right across the view, and a high sparkle appears where the picture is busy. The middle of the map goes from 32 relative brightness to 32 relative brightness, so the pad stays put. Sound is derived from image brightness, not calibrated measurements.</p>
+  </section>
+  
+
+  <h2>The datasets and how well they were decoded</h2>
+  <p>Each row shows the rule set for one dataset. "Colour match" is the average perceptual distance (ΔE) between the decoded pixels and the legend colours. Below about 1 is nearly exact. Under 3 is hard to see by eye.</p>
+  
+  <section class="dataset-card">
+    <h3>Change in Night Lights 2012–2023</h3>
+    <p>NASA Black Marble / VIIRS night-light visualization; visual intensity, not calibrated radiance. Visual sonification: normalized grayscale brightness 0–100 sampled from selected video frames and crop.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/5313/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 relative brightness</li>
+      <li>Scale: lydian, home note D3, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame Frame 1 of 5: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 2 of 5: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 3 of 5: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 4 of 5: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 5 of 5: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      
+    </ul>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>Global Sea Surface Currents and Temperature</h3>
+    <p>ECCO2 model-derived surface currents colored by SST. Visual sonification: each pixel&#39;s hue is placed along the blue-to-red temperature colour ramp (0 = coldest colour, 100 = warmest). Grey land is silent. Relative, not calibrated degrees.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/3912/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 % along cold-to-warm ramp</li>
+      <li>Scale: dorian, home note A2, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame Frame 1 of 6: 46% of cells have data. Warning: Relative position along the blue-to-red colour ramp; not calibrated degrees.</li>
+      
+      <li>Frame Frame 2 of 6: 44% of cells have data. Warning: Relative position along the blue-to-red colour ramp; not calibrated degrees.</li>
+      
+      <li>Frame Frame 3 of 6: 45% of cells have data. Warning: Relative position along the blue-to-red colour ramp; not calibrated degrees.</li>
+      
+      <li>Frame Frame 4 of 6: 46% of cells have data. Warning: Relative position along the blue-to-red colour ramp; not calibrated degrees.</li>
+      
+      <li>Frame Frame 5 of 6: 43% of cells have data. Warning: Relative position along the blue-to-red colour ramp; not calibrated degrees.</li>
+      
+      <li>Frame Frame 6 of 6: 45% of cells have data. Warning: Relative position along the blue-to-red colour ramp; not calibrated degrees.</li>
+      
+      
+    </ul>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>GEOS Aerosols</h3>
+    <p>GEOS aerosol fields; colors/categories in rendered visualization. Visual sonification: normalized grayscale brightness 0–100 sampled from selected video frames and crop.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/5669/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 relative brightness</li>
+      <li>Scale: wholeTone, home note E3, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame Frame 1 of 1: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      
+    </ul>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>Air Quality Model Runs</h3>
+    <p>GEOS-CF concentrations including PM2.5, O3, CO, NOx. Visual sonification: normalized grayscale brightness 0–100 sampled from selected video frames and crop. Grey area = outside the globe: no data, so it is silent.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/5533/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 relative brightness</li>
+      <li>Scale: dorian, home note F3, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame Frame 1 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 2 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 3 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 4 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 5 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 6 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 7 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 8 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 9 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 10 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 11 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      
+    </ul>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>Perpetual Ocean 2: Western Boundary Currents</h3>
+    <p>ECCO-derived ocean current visualization; motion sonification. Visual sonification: normalized grayscale brightness 0–100 sampled from selected video frames and crop.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/5425/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 relative brightness</li>
+      <li>Scale: dorian, home note D3, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame Frame 1 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 2 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 3 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 4 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 5 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 6 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      
+    </ul>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>DYAMOND Global Carbon Dioxide</h3>
+    <p>Global CO2 ppm from model output, Jan–Mar 2020. Visual sonification: normalized grayscale brightness 0–100 sampled from selected video frames and crop. Grey area = outside the globe: no data, so it is silent.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/5196/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 relative brightness</li>
+      <li>Scale: minorPent, home note C3, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame ~14 Jan 2020: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame ~21 Jan 2020: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame ~27 Jan 2020: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame ~02 Feb 2020: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame ~08 Feb 2020: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame ~15 Feb 2020: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame ~21 Feb 2020: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame ~27 Feb 2020: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      
+    </ul>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>Lightning Events Detected from the ISS 2017–2023</h3>
+    <p>Quality-controlled ISS LIS observations visualized with a 10-day roving window; video pixels are not individual event records. Visual sonification: normalized grayscale brightness 0–100 sampled from selected video frames and crop.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/5011/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 relative brightness</li>
+      <li>Scale: minorPent, home note F#3, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame 01 Mar 2017 03:27: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 04:18: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 05:09: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 06:01: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 06:52: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 07:44: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 08:35: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 09:26: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 10:18: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 11:09: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame 01 Mar 2017 12:01: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      
+    </ul>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>3D View of an Atmospheric River from an Earth System Model</h3>
+    <p>Model visualization; frame-based density/motion extraction. Visual sonification: normalized grayscale brightness 0–100 sampled from selected video frames and crop.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/4960/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 relative brightness</li>
+      <li>Scale: lydian, home note A2, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame Frame 1 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 2 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 3 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 4 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 5 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 6 of 6: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      
+    </ul>
+  </section>
+  
+  <section class="dataset-card">
+    <h3>GEDI Forest Height</h3>
+    <p>GEDI ISS measurements (Apr 2019–Apr 2020); color represents canopy height. Visual sonification: normalized grayscale brightness 0–100 sampled from selected video frames and crop. Grey area = outside the globe: no data, so it is silent.</p>
+    <p class="credit">Source: <a href="https://svs.gsfc.nasa.gov/4950/" rel="noopener">NASA Scientific Visualization Studio; see source page for full credits and dataset acknowledgements.</a></p>
+    <ul>
+      <li>Legend range: 0 to 100 relative brightness</li>
+      <li>Scale: majorPent, home note G2, spanning 3 octaves</li>
+      <li>Tension rises with: high values</li>
+      
+      <li>Frame Frame 1 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 2 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 3 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 4 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 5 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 6 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 7 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 8 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 9 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 10 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      <li>Frame Frame 11 of 11: 100% of cells have data. Warning: Relative image brightness; not calibrated science units</li>
+      
+      
+    </ul>
+  </section>
+  
+
+  <h2>Limits, stated plainly</h2>
+  <ul>
+    <li>The sound comes from the image, not the original science file, so it is limited by the picture's colours and size.</li>
+    <li>Most datasets use image brightness as the value. Sea-surface temperature uses the hue of each pixel along the map's blue-to-red ramp, which is a better fit for a rainbow colour map. Both are relative values, not measurements.</li>
+    <li>Globe and camera views are reported by position in the frame, never by invented latitude and longitude; the black sky around a globe is silent.</li>
+    <li>If a legend is banded, only that many distinct values can be recovered.</li>
+    <li>Cyclic colour palettes, where the ends look alike, can confuse the matching.</li>
+  </ul>
+</main>
+
+</body>
+</html>

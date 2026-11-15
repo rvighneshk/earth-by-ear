@@ -1,0 +1,108 @@
+{
+  "_note": "The 9 Earth Information Center sources and the settings used to import them. Used by: python -m pipeline.import_all. Save each download in datasets/real/media/ (any file name that contains one of its keywords, or <id>.mp4). Edit crop/times here; crop is x,y,width,height as fractions 0..1 (find it with pipeline.preview_video). times are seconds into the video; null = 6 evenly spaced frames. skip_start / skip_end (seconds) ignore a title or logo at the start or credits at the end. Blank frames are skipped automatically.",
+  "sources": [
+    {
+      "id": "eic-night-lights",
+      "keywords": [
+        "night",
+        "5313"
+      ],
+      "times": "0,10,20,30,40",
+      "crop": "0.02,0.12,0.96,0.72",
+      "palette": "night"
+    },
+    {
+      "id": "eic-ocean-current-temperature",
+      "keywords": [
+        "current",
+        "sst",
+        "sea-surface",
+        "3912"
+      ],
+      "times": "0,5,10,15,20,25",
+      "crop": null,
+      "palette": "ocean"
+    },
+    {
+      "id": "eic-geos-aerosols",
+      "keywords": [
+        "aerosol",
+        "5669"
+      ],
+      "times": null,
+      "crop": null,
+      "palette": "plasma"
+    },
+    {
+      "id": "eic-air-quality",
+      "keywords": [
+        "air",
+        "quality",
+        "5533"
+      ],
+      "times": "0,5,10,15,20,25,30,35,40,45,50",
+      "crop": null,
+      "palette": "viridis"
+    },
+    {
+      "id": "eic-perpetual-ocean",
+      "keywords": [
+        "perpetual",
+        "boundary",
+        "5425"
+      ],
+      "times": null,
+      "crop": null,
+      "palette": "ocean",
+      "proxy": true,
+      "skip_start": 5
+    },
+    {
+      "id": "eic-dyamond-co2",
+      "keywords": [
+        "dyamond",
+        "co2",
+        "carbon",
+        "5196"
+      ],
+      "times": "0,5,10,15,20,25,30,35",
+      "crop": null,
+      "palette": "plasma"
+    },
+    {
+      "id": "eic-iss-lightning",
+      "keywords": [
+        "lightning",
+        "iss",
+        "5011"
+      ],
+      "times": "0,5,10,15,20,25,30,35,40,45,50",
+      "crop": null,
+      "palette": "plasma"
+    },
+    {
+      "id": "eic-atmospheric-river",
+      "keywords": [
+        "atmos",
+        "river",
+        "4960"
+      ],
+      "times": null,
+      "crop": null,
+      "palette": "viridis",
+      "proxy": true,
+      "skip_start": 8
+    },
+    {
+      "id": "eic-gedi-forest-height",
+      "keywords": [
+        "gedi",
+        "forest",
+        "4950"
+      ],
+      "times": "0,5,10,15,20,25,30,35,40,45,50",
+      "crop": null,
+      "palette": "viridis"
+    }
+  ]
+}

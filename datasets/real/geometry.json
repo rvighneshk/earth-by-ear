@@ -1,0 +1,6 @@
+{
+  "_note": "Edit if a dataset is classified wrongly. map = flat lat/lon picture; globe = round Earth on black (background gets masked); view = camera / 3-D scene (no lat/lon claims). Datasets not listed here are auto-detected and the decision is printed.",
+  "map":   ["eic-night-lights", "eic-ocean-current-temperature", "eic-geos-aerosols"],
+  "globe": ["eic-dyamond-co2", "eic-air-quality", "eic-gedi-forest-height"],
+  "view":  ["eic-iss-lightning"]
+}

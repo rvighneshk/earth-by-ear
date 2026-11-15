@@ -1,0 +1,59 @@
+{
+  "_README": [
+    "Copy this file to datasets/real/datasets.json, delete the _README and _notes keys, then fill in every value marked FILL_IN.",
+    "I could read the SVS pages but NOT view the images, so legends and layouts below are UNVERIFIED.",
+    "For each dataset: download 1 still (or use `python -m pipeline.build frames video.mp4 --times 0,99%`),",
+    "run `python -m pipeline.build detect <still> --vmin A --vmax B --out out/debug.png`, open out/debug.png,",
+    "and only keep the dataset if meanΔE < 3 and the warnings list is empty (or understood)."
+  ],
+  "datasets": [
+    {
+      "id": "night-lights-change",
+      "title": "Night lights change, 2012 to 2023",
+      "unit": "FILL_IN (units printed on the legend)",
+      "description": "Change in night-time light seen from space. Purple = more light, orange = less light.",
+      "center": 0,
+      "credit": {"text": "NASA's Scientific Visualization Studio, Change in Night Lights between 2012 and 2023 (EIC version, SVS 5313)", "url": "https://svs.gsfc.nasa.gov/5313/"},
+      "story": {"intro": "FILL_IN: your words. Why light at night matters.", "outro": "FILL_IN: your words."},
+      "sonification": {"scale": "lydian", "root": "A3", "spanOctaves": 3, "tension": "anomaly", "positiveWord": "brighter", "negativeWord": "darker"},
+      "_notes": "The EIC version is 7680x2160 (32:9) with zoomed inset panels: you MUST set extract.map_bbox to the main flat-map panel only. Check whether the change map shows a legend; if not, this dataset needs a manual legend (see README).",
+      "frames": [
+        {"label": "FILL_IN", "image": "datasets/real/FILL_IN.png"},
+        {"label": "FILL_IN", "image": "datasets/real/FILL_IN.png"}
+      ],
+      "extract": {"vmin": 0, "vmax": 1, "ticks": null, "scale": "linear", "grid_cols": 180, "map_bbox": [0, 0, 100, 100], "extent": [-180, -90, 180, 90]}
+    },
+    {
+      "id": "pm25",
+      "title": "Fine particulate matter (PM2.5)",
+      "unit": "FILL_IN (probably ug/m3)",
+      "description": "Near-surface fine particles from NASA's GEOS-CF model.",
+      "center": null,
+      "credit": {"text": "NASA's Scientific Visualization Studio and Global Modeling and Assimilation Office, GEOS-CF (SVS 5151 / 5533)", "url": "https://svs.gsfc.nasa.gov/5151/"},
+      "story": {"intro": "FILL_IN", "outro": "FILL_IN"},
+      "sonification": {"scale": "dorian", "root": "D3", "spanOctaves": 3, "tension": "high", "positiveWord": "more polluted", "negativeWord": "cleaner"},
+      "_notes": "Page 5151 was NOT fetched by me; only linked from 5533. Verify it is a flat map with a colorbar. If its colorbar is a separate image, set extract.legend_image and legend_orientation.",
+      "frames": [
+        {"label": "FILL_IN", "image": "datasets/real/FILL_IN.png"},
+        {"label": "FILL_IN", "image": "datasets/real/FILL_IN.png"}
+      ],
+      "extract": {"vmin": 0, "vmax": 1, "ticks": null, "scale": "linear", "grid_cols": 180}
+    },
+    {
+      "id": "sea-surface-temperature",
+      "title": "Sea surface temperature",
+      "unit": "FILL_IN",
+      "description": "Ocean temperature, with currents drawn on top.",
+      "center": null,
+      "credit": {"text": "NASA's Scientific Visualization Studio, Global Sea Surface Currents and Temperature (SVS 3912)", "url": "https://svs.gsfc.nasa.gov/3912/"},
+      "story": {"intro": "FILL_IN", "outro": "FILL_IN"},
+      "sonification": {"scale": "major", "root": "C3", "spanOctaves": 3, "tension": "high", "positiveWord": "warmer", "negativeWord": "cooler"},
+      "_notes": "Page 3912 was NOT fetched by me. Current streaks drawn over the colours are thin lines, which the pipeline fills in; check the debug picture.",
+      "frames": [
+        {"label": "FILL_IN", "image": "datasets/real/FILL_IN.png"},
+        {"label": "FILL_IN", "image": "datasets/real/FILL_IN.png"}
+      ],
+      "extract": {"vmin": 0, "vmax": 1, "ticks": null, "scale": "linear", "grid_cols": 180}
+    }
+  ]
+}

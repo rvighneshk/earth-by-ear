@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a1020">
+  <title>{% block title %}Earth, by ear{% endblock %}</title>
+  <!-- Manrope from Google Fonts when online; the page works without it (falls back to system-ui). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="{{ assets }}/css/app.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the map</a>
+  <header class="top">
+    <a class="brand" href="{{ home }}" aria-label="Earth, by ear, home">
+      <svg class="mark" viewBox="0 0 48 48" width="38" height="38" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+        <rect x="1" y="1" width="46" height="46" rx="14" fill="url(#mk)"/>
+        <path d="M12 26a12 12 0 0 1 24 0" fill="none" stroke="#04121f" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+        <path d="M17 26a7 7 0 0 1 14 0" fill="none" stroke="#04121f" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+        <circle cx="24" cy="31" r="3.2" fill="#04121f"/>
+      </svg>
+      <span class="brand-text"><span class="brand-name">Earth, by ear</span><span class="brand-sub">NASA data you can hear</span></span>
+    </a>
+    <nav aria-label="Pages">
+      <a href="{{ home }}" {% if page == 'home' %}aria-current="page"{% endif %}>Listen</a>
+      <a href="{{ story }}" {% if page == 'story' %}aria-current="page"{% endif %}>How it works</a>
+    </nav>
+  </header>
+  {% block content %}{% endblock %}
+</body>
+</html>

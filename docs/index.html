@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a1020">
+  <title>Earth, by ear</title>
+  <!-- Manrope from Google Fonts when online; the page works without it (falls back to system-ui). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="static/css/app.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the map</a>
+  <header class="top">
+    <a class="brand" href="index.html" aria-label="Earth, by ear, home">
+      <svg class="mark" viewBox="0 0 48 48" width="38" height="38" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+        <rect x="1" y="1" width="46" height="46" rx="14" fill="url(#mk)"/>
+        <path d="M12 26a12 12 0 0 1 24 0" fill="none" stroke="#04121f" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+        <path d="M17 26a7 7 0 0 1 14 0" fill="none" stroke="#04121f" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+        <circle cx="24" cy="31" r="3.2" fill="#04121f"/>
+      </svg>
+      <span class="brand-text"><span class="brand-name">Earth, by ear</span><span class="brand-sub">NASA data you can hear</span></span>
+    </a>
+    <nav aria-label="Pages">
+      <a href="index.html" aria-current="page">Listen</a>
+      <a href="story.html" >How it works</a>
+    </nav>
+  </header>
+  
+<div class="soundbar" role="region" aria-label="Sound">
+  <button id="start" class="btn primary i-sound" type="button">Turn on sound</button>
+  <span id="status" class="status" role="status">Sound is off.</span>
+  <label class="vol">Volume
+    <input id="volume" type="range" min="0" max="100" value="80">
+  </label>
+</div>
+
+<main id="main" class="app">
+  <section class="hero" aria-labelledby="page-title">
+    <p class="eyebrow">NASA Space Apps 2026 · Earth Information Jukebox</p>
+    <h1 id="page-title">Hear what the map says</h1>
+    <p class="lede">NASA's Earth Information Center makes pictures of our changing planet. Here you hear them. Each frame's brightness and detail become music: calm regions are sparse and steady, busy regions get dense and bright. Press Play and listen.</p>
+    <ol class="steps" aria-label="How to start">
+      <li><b>1</b><span>Turn on sound</span></li>
+      <li><b>2</b><span>Pick a dataset</span></li>
+      <li><b>3</b><span>Move over the map</span></li>
+    </ol>
+  </section>
+
+  <div class="layout">
+    <section class="stage panel" aria-labelledby="stage-h">
+      <header class="panel-head">
+        <p class="eyebrow">Explore</p>
+        <h2 id="stage-h">Choose what to hear</h2>
+      </header>
+
+      <div class="picker">
+        <fieldset class="group">
+          <legend>Dataset</legend>
+          <div id="datasets" class="chips-row"></div>
+        </fieldset>
+        <div class="picker-row">
+          <fieldset class="group">
+            <legend>Listening mode</legend>
+            <div class="segmented">
+              <label class="seg i-ear1"><input type="radio" name="mode" value="explore" checked><span>One map</span></label>
+              <label class="seg i-ear2"><input type="radio" name="mode" value="duet"><span>Duet across time</span></label>
+            </div>
+          </fieldset>
+          <div class="frames">
+            <label id="lbl-a" hidden><span class="fl fl-left">Left ear time</span>
+              <select id="frame-a"></select></label>
+            <label id="lbl-b"><span class="fl">Map time <span id="lbl-b-duet" class="fl-right" hidden>(right ear)</span></span>
+              <select id="frame-b"></select></label>
+          </div>
+        </div>
+      </div>
+
+      <p id="ds-desc" class="desc"></p>
+
+      <div id="map" class="map" tabindex="0" role="application"
+           aria-label="Data map. Use the arrow keys to move. Each step plays the local value. Press question mark for all keys."
+           aria-describedby="keys">
+        <canvas id="canvas"></canvas>
+        <img id="orig" class="orig" alt="" hidden>
+        <div id="cursor" class="cursor" aria-hidden="true"></div>
+        <div id="sweep" class="sweep" aria-hidden="true"></div>
+      </div>
+
+      <p class="credit" id="credit-row" hidden>Source: <a id="ds-credit" href="#" target="_blank" rel="noopener"></a></p>
+
+      <div class="legend">
+        <div class="legend-head">
+          <label for="legend-slider" class="legend-title">Hear the colorbar</label>
+          <span class="hint">Slide to play any value on the legend</span>
+        </div>
+        <div class="strip" id="strip"><input id="legend-slider" type="range" min="0" max="100" value="50"></div>
+        <div class="ends"><span id="end-low"></span><span id="end-high"></span></div>
+      </div>
+    </section>
+
+    <aside class="side" aria-label="Readout and controls">
+      <section class="panel now" aria-labelledby="now-h">
+        <header class="panel-head">
+          <p class="eyebrow">Live readout</p>
+          <h2 id="now-h">Now playing</h2>
+        </header>
+        <div class="chips" aria-hidden="true">
+          <div class="chip chip-left" id="now-a" hidden>
+            <span class="ear"><span id="now-a-ear">Left ear</span> · <b id="now-a-label"></b></span>
+            <span class="chip-main"><i class="sw" id="now-a-sw"></i><span class="val" id="now-a-value">-</span></span>
+            <span class="note" id="now-a-note">-</span>
+          </div>
+          <div class="chip chip-right" id="now-b">
+            <span class="ear"><span id="now-b-ear">You hear</span> · <b id="now-b-label"></b></span>
+            <span class="chip-main"><i class="sw" id="now-b-sw"></i><span class="val" id="now-b-value">-</span></span>
+            <span class="note" id="now-b-note">-</span>
+          </div>
+        </div>
+        <p class="delta" id="now-delta" aria-hidden="true" hidden></p>
+        <p class="chordline" id="now-chord" aria-hidden="true" hidden></p>
+        <div class="tension" aria-hidden="true">
+          <span class="tension-l">Tension</span>
+          <div class="bar"><i id="now-tension"></i></div>
+        </div>
+        <p class="where" id="now-where" aria-hidden="true"></p>
+        <p id="readout" class="readout" aria-live="polite" aria-atomic="true">Move over the map to start.</p>
+      </section>
+
+      <section class="panel tour-card" aria-labelledby="tour-h">
+        <header class="panel-head">
+          <p class="eyebrow">Hands-free</p>
+          <h2 id="tour-h">Guided tour</h2>
+        </header>
+        <p class="panel-p">Press play and the whole visualization is performed for you: a pad for the overall picture, a melody that sweeps west to east, and a sparkle voice where the picture is busy.</p>
+        <button type="button" id="jukebox" class="btn primary wide i-wave">Play this visualization</button>
+        <a id="dl-track" class="btn secondary wide" href="#" download hidden>Download this track (MP3)</a>
+        <a id="dl-all" class="btn ghost wide" href="#" download hidden>Download all tracks (ZIP)</a>
+        <p class="panel-p">Or take a guided tour. It plays itself: visits the biggest increase, the biggest decrease and the most extreme place, with the two years in your two ears.</p>
+        <button type="button" id="tour" class="btn primary wide i-tour">Take the guided tour</button>
+        <p class="panel-p chord-p">Or hear every frame at once: each map becomes one chord, and you hear the chord change over time.</p>
+        <button type="button" id="timelapse" class="btn secondary wide i-wave">Play the planet's chord</button>
+        <div class="tour-nav" id="tour-nav" hidden>
+          <button type="button" id="tour-prev" class="btn ghost i-back">Back</button>
+          <button type="button" id="tour-next" class="btn ghost i-next">Next stop</button>
+        </div>
+        <div class="dots" id="tour-dots" aria-hidden="true"></div>
+      </section>
+
+      <section class="panel listen-card" aria-labelledby="listen-h">
+        <header class="panel-head">
+          <p class="eyebrow">Explore</p>
+          <h2 id="listen-h">Listen around</h2>
+        </header>
+        <div class="btn-grid">
+          <button type="button" id="jump-change" class="btn secondary wide i-jump">Jump to biggest change</button>
+          <button type="button" id="scan-row" class="btn secondary i-rows">Scan row</button>
+          <button type="button" id="scan-col" class="btn secondary i-cols">Scan column</button>
+          <button type="button" id="scan-pole" class="btn secondary i-pole">Pole to pole</button>
+          <button type="button" id="play-bar" class="btn secondary i-bar">Play colorbar</button>
+          <button type="button" id="stop" class="btn danger wide i-stop">Stop</button>
+        </div>
+      </section>
+
+      <section class="panel settings-card" aria-labelledby="set-h">
+        <header class="panel-head">
+          <p class="eyebrow">Settings</p>
+          <h2 id="set-h">Options</h2>
+        </header>
+        <label class="switch"><input id="speak" type="checkbox"><span class="track" aria-hidden="true"></span><span>Speak readouts with browser voice</span></label>
+        <label class="switch"><input id="vibrate" type="checkbox"><span class="track" aria-hidden="true"></span><span>Vibrate with the sound (Android phones)</span></label>
+        <label class="switch"><input id="show-orig" type="checkbox"><span class="track" aria-hidden="true"></span><span>Show the original NASA frame</span></label>
+      </section>
+
+      <details id="keys" class="panel keys">
+        <summary>Keyboard shortcuts <span class="hint">press ? on the map</span></summary>
+        <dl>
+          <dt>Arrow keys</dt><dd>Move one cell. Hold Shift to move ten.</dd>
+          <dt>Home / End</dt><dd>Jump to the west or east edge of this row.</dd>
+          <dt>Page Up / Down</dt><dd>Jump north or south by fifteen rows.</dd>
+          <dt>Space or Enter</dt><dd>Hear this cell again.</dd>
+          <dt>R, C, P</dt><dd>Scan the row, the column, or pole to pole.</dd>
+          <dt>D</dt><dd>Switch between One map and Duet.</dd>
+          <dt>J</dt><dd>Play the whole visualization as a composed piece.</dd>
+          <dt>L</dt><dd>Play the planet's chord: every frame as one chord.</dd>
+          <dt>T, N, B</dt><dd>Start the guided tour, next stop, previous stop.</dd>
+          <dt>G</dt><dd>Jump to the place that changed most between the two times.</dd>
+          <dt>1 to 9</dt><dd>Choose a dataset.</dd>
+          <dt>S</dt><dd>Turn spoken readouts on or off.</dd>
+          <dt>Escape</dt><dd>Stop playing.</dd>
+        </dl>
+      </details>
+    </aside>
+  </div>
+</main>
+<script type="module" src="static/js/main.js"></script>
+
+</body>
+</html>
