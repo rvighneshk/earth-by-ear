@@ -59,6 +59,7 @@ Earth, by Ear does not simply assign arbitrary notes to image colours. Its main 
 4. **Map values to musical notes.** Normalize values to the dataset's range and snap pitches to a selected musical scale and root note. For anomaly datasets, the legend's centre maps to the home note.
 5. **Add musical character.** Extreme values introduce dissonance (a tritone, then a minor second); local variation affects roughness; latitude and tension affect brightness; and longitude maps to stereo position.
 6. **Compose and play.** The browser synthesizes notes with the Web Audio API. A separate Python renderer creates downloadable stereo audio using corresponding sonification rules.
+7. Of the nine shipped datasets, eight use image brightness and sea-surface temperature uses hue along its colour ramp. The legend-decoding pipeline is included for sources with a colourbar but is not used for the shipped data.
 
 ### A note on visual sonification
 
